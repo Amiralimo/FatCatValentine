@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Be My Fat Cat Valentine!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile-friendly viewport -->
+    <style>
+        body {
+            background-color: violet; /* Violet background */
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive;
+            margin: 0;
+            padding: 0;
+        }
+        #cat {
+            width: 200px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 20px;
+        }
+        .container {
+            padding: 20px;
+        }
+        button {
+            background-color: #ff6699;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .hearts span {
+            color: #ff3366;
+            font-size: 24px;
+            margin: 0 5px;
+        }
+        #playMusicButton {
+            background-color: #8A2BE2; /* Violet button */
+            margin-top: 20px;
+            animation: pulse 1.5s infinite; /* Add pulsating animation */
+        }
+
+        /* Pulsating animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Hover effect */
+        #playMusicButton:hover {
+            animation: none; /* Stop animation on hover */
+            background-color: #9932CC; /* Darker violet on hover */
+            transform: scale(1.1); /* Slightly enlarge the button */
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Feed the gorbe chagh patooyi 20 times</h1>
+        <div class="hearts">❤️❤️❤️</div>
+        <p>Treats given: <span id="counter">0</span></p>
+        <!-- Use a .jpg image -->
+        <img id="cat" src="https://spca.bc.ca/wp-content/uploads/cat-overweight-obese-laying-couch.jpg" alt="Cute Fat Cat">
+        <div id="proposal" style="display: none;">
+            <h2>Will you be my Valentine Yeganeh❤️?</h2>
+            <button onclick="respondYes()">YES❤️</button>
+            <button onclick="keepFeeding()">More ghaza please❤️</button>
+        </div>
+        <!-- Play Music Button -->
+        <button id="playMusicButton" onclick="playMusic()">🎵 Play Music 🎵</button>
+    </div>
+
+    <!-- Audio element for the song -->
+    <audio id="valentineSong" loop>
+        <source src="https://drive.google.com/file/d/1e0VPw0sHeDGgHV71J6K_HLfMFygfa9st/preview" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Function to play the song
+        function playMusic() {
+            const song = document.getElementById('valentineSong');
+            song.play().then(() => {
+                console.log("Music is playing!");
+            }).catch(error => {
+                console.log("Music playback failed. Please interact with the page first.");
+            });
+        }
+
+        let treats = 0;
+        const cat = document.getElementById('cat');
+        const counter = document.getElementById('counter');
+        const proposal = document.getElementById('proposal');
+
+        cat.addEventListener('click', feedCat);
+
+        function feedCat() {
+            treats++;
+            counter.textContent = treats;
+            
+            // Make cat bigger
+            const currentWidth = cat.offsetWidth;
+            cat.style.width = (currentWidth + 5) + 'px';
+
+            // Random rotation
+            cat.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+
+            // Show proposal after 20 treats
+            if(treats === 20) {
+                proposal.style.display = 'block';
+            }
+        }
+
+        function respondYes() {
+            alert("I love you baby❤️ You're my perfect match❤️ Let's cuddle and eat treats in our hug forever Yeganeh❤️");
+            proposal.style.display = 'none';
+        }
+
+        function keepFeeding() {
+            treats = 15; // Reset to need 5 more treats
+            counter.textContent = treats;
+            proposal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
