@@ -16,6 +16,8 @@
             transition: all 0.3s ease;
             cursor: pointer;
             margin: 20px;
+            max-width: 100%; /* Ensures image fits within screen */
+            height: auto; /* Maintains the aspect ratio */
         }
         .container {
             padding: 20px;
@@ -69,7 +71,7 @@
         <div class="hearts">❤️❤️❤️</div>
         <p>Treats given: <span id="counter">0</span></p>
         <!-- Use a .jpg image -->
-        <img id="cat" src="https://github.com/Amiralimo/FatCatValentine/blob/main/Cat.jpg" alt="Cute Fat Cat">
+        <img id="cat" src="https://raw.githubusercontent.com/Amiralimo/FatCatValentine/main/Cat.jpg" alt="Cute Fat Cat">
         <div id="proposal" style="display: none;">
             <h2>Will you be my Valentine Yeganeh❤️?</h2>
             <button onclick="respondYes()">YES❤️</button>
@@ -81,7 +83,7 @@
 
     <!-- Audio element for the song -->
     <audio id="valentineSong" loop>
-        <source src="https://github.com/Amiralimo/FatCatValentine/blob/main/Song.mp4.m4a" type="audio/mpeg">
+        <source src="https://raw.githubusercontent.com/Amiralimo/FatCatValentine/main/Song.mp4.m4a" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
